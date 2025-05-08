@@ -1,6 +1,12 @@
+import os
+from openai import OpenAI
+from dotenv import load_dotenv
+
+
 from elevenlabs import ElevenLabs, play
 
-client = ElevenLabs(api_key="sk_879db36e91115a449cb30ebafe058056ba7d7463fb7147b2")  # Replace with your real key
+load_dotenv()
+client = ElevenLabs(api_key=os.getenv("ELEVENLABS_API_KEY"))
 
 def speak(text):
     audio = client.generate(
