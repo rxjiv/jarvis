@@ -14,9 +14,9 @@ def listen():
     sd.wait()
 
     with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
-        sf.write(f.name, audio, samplerate)
-        print("[🧠] Transcribing...")
-        result = model.transcribe(f.name)
+        sf.write(f.name, audio, samplerate)## TRANSCRIBING THE AUDIO
+        print("[🧠] Transcribing...") 
+        result = model.transcribe(f.name) ## AUDIO TO TEXT
         print("[DEBUG] Full result:", result)
         print("[✅] You said:", result["text"])
         return result["text"]
